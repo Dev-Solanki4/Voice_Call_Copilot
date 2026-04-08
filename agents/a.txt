@@ -1,0 +1,240 @@
+
+https://playground.videosdk.live?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiJkNGNmMzg3Mi00MzYzLTRiZjEtYjE4ZC02YmFhNDU4NjhkNGYiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTc3MzY1MTk3OCwiZXhwIjoxNzc0MjU2Nzc4fQ.HZ39NNC46uOOOtBnN_SfEAjndZ23yOYrTTme3mGi7Tc&meetingId=je1g-fr76-besa
+INFO:videosdk.agents.agent_session:SIP user detected, waiting for audio stream to be enabled before calling on_enter
+INFO:videosdk.agents.worker:Updating worker status - job_count: 2, load: 0.4, max_processes: 5
+INFO:videosdk.agents.worker:Active job IDs: ['f12e28ae-e0d1-4514-8511-61324f7915a6', '86c591a2-b753-4439-af0a-6a62b0237814']
+INFO:videosdk.agents.agent_session:SIP user audio stream enabled for participant ubkrgunx
+INFO:videosdk.agents.room.room:Audio stream enabled for participant: +15746525076
+INFO:aioice.ice:Connection(4) Check CandidatePair(('192.168.130.91', 49134) -> ('34.47.255.107', 52231)) State.FROZEN -> State.WAITING
+INFO:videosdk.agents.agent_session:SIP user audio stream enabled, proceeding with on_enter
+INFO:videosdk.agents.metrics.cascading_metrics_collector:agent output speech: Welcome! I'm your restaurant assistant. How can I help you today?
+INFO:videosdk.agents.room.audio_stream:on last audio callback
+INFO:aioice.ice:Connection(4) Check CandidatePair(('192.168.130.91', 49134) -> ('34.47.255.107', 52231)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(4) Check CandidatePair(('192.168.130.91', 49134) -> ('34.47.255.107', 52231)) nominating pair
+INFO:aioice.ice:Connection(4) Check CandidatePair(('192.168.130.91', 49134) -> ('34.47.255.107', 52231)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(4) ICE completed
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.analytics:Analytics sent successfully
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.cascading_metrics_collector:Stt duration 3.8700004, confidence 1.0
+INFO:videosdk.agents.conversation_flow:DEFAULT Mode, using min speech wait timeout seconds 0.8 and max speech wait timeout seconds 1.2
+INFO:videosdk.agents.conversation_flow:Using delay: 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Called _wait_for_additional_speech method, Waiting for additional speech for 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Finalizing transcript: 'I want to order 1 pizza.'
+INFO:videosdk.agents.metrics.cascading_metrics_collector:user input speech: I want to order 1 pizza.
+INFO:videosdk.agents.metrics.cascading_metrics_collector:stt latency: 801.5604ms
+INFO:root:!!! LLM CHAT METHOD TRIGGERED !!! Session: 2610d754-8001-4646-9e8f-17f65d815521
+INFO:root:--- USER SAYS: ['I want to order 1 pizza.'] ---
+INFO:root:--- Starting 17-Step Workflow ---
+INFO:videosdk.agents.room.audio_stream:on last audio callback
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- ExtractionAgent took 0.31s ---
+INFO:root:--- Workflow Node 'extractor' finished ---
+ERROR:root:!!! LangGraph Critical Error: 'item' !!!
+ERROR:root:Traceback (most recent call last):
+  File "/home/petpooja-244/Desktop/call/main.py", line 104, in chat
+    async for event in self.graph.astream(self.state, stream_mode="updates"):
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3109, in astream
+    async for _ in runner.atick(
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 163, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/agents/menu_agent.py", line 39, in __call__
+    # Use 'name' key instead of 'item'
+                                       
+KeyError: 'item'
+During task with name 'menu_specialist' and id '3c665b11-8d22-bdee-897e-4de1637d701e'
+
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm ttft: 319.6335ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm duration: 319.7823ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:agent output speech: I'm sorry, I'm having a bit of trouble processing that. Could you repeat?
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.analytics:Analytics sent successfully
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.cascading_metrics_collector:Stt duration 1.9099998, confidence 1.0
+INFO:videosdk.agents.conversation_flow:DEFAULT Mode, using min speech wait timeout seconds 0.8 and max speech wait timeout seconds 1.2
+INFO:videosdk.agents.conversation_flow:Using delay: 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Called _wait_for_additional_speech method, Waiting for additional speech for 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Finalizing transcript: '1 pizza.'
+INFO:videosdk.agents.metrics.cascading_metrics_collector:user input speech: 1 pizza.
+INFO:videosdk.agents.metrics.cascading_metrics_collector:stt latency: 801.8748ms
+INFO:root:!!! LLM CHAT METHOD TRIGGERED !!! Session: 2610d754-8001-4646-9e8f-17f65d815521
+INFO:root:--- USER SAYS: ['1 pizza.'] ---
+INFO:root:--- Starting 17-Step Workflow ---
+INFO:videosdk.agents.room.audio_stream:on last audio callback
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- ExtractionAgent took 0.23s ---
+INFO:root:--- Workflow Node 'extractor' finished ---
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- IntentAgent took 0.14s (Intent: order) ---
+INFO:root:--- Workflow Node 'intent_classifier' finished ---
+INFO:root:--- Workflow Node 'menu_specialist' finished ---
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:--- OrderAgent state update: {'items': [], 'total': 0.0, 'tax': 0.0} ---
+--- OrderAgent took 0.15s ---
+INFO:root:--- Workflow Node 'order_builder' finished ---
+INFO:root:--- Workflow Node 'validator' finished ---
+INFO:root:--- Workflow Node 'summarizer' finished ---
+INFO:root:--- Workflow completed in 0.53s ---
+INFO:root:--- AI SAYS: I'm sorry, I couldn't find that item in the menu or something went wrong. Could you please check the menu or try another item? ---
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm ttft: 530.4799ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm duration: 530.6406ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:agent output speech: I'm sorry, I couldn't find that item in the menu or something went wrong. Could you please check the menu or try another item?
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.analytics:Analytics sent successfully
+INFO:videosdk.agents.worker:Updating worker status - job_count: 2, load: 0.4, max_processes: 5
+INFO:videosdk.agents.worker:Active job IDs: ['f12e28ae-e0d1-4514-8511-61324f7915a6', '86c591a2-b753-4439-af0a-6a62b0237814']
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.cascading_metrics_collector:Stt duration 3.959999, confidence 0.94970703
+INFO:videosdk.agents.conversation_flow:DEFAULT Mode, using min speech wait timeout seconds 0.8 and max speech wait timeout seconds 1.2
+INFO:videosdk.agents.conversation_flow:Using delay: 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Called _wait_for_additional_speech method, Waiting for additional speech for 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Finalizing transcript: '1 veg biryani.'
+INFO:videosdk.agents.metrics.cascading_metrics_collector:user input speech: 1 veg biryani.
+INFO:videosdk.agents.metrics.cascading_metrics_collector:stt latency: 801.3949ms
+INFO:root:!!! LLM CHAT METHOD TRIGGERED !!! Session: 2610d754-8001-4646-9e8f-17f65d815521
+INFO:root:--- USER SAYS: ['1 veg biryani.'] ---
+INFO:root:--- Starting 17-Step Workflow ---
+INFO:videosdk.agents.room.audio_stream:on last audio callback
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- ExtractionAgent took 0.24s ---
+INFO:root:--- Workflow Node 'extractor' finished ---
+ERROR:root:!!! LangGraph Critical Error: 'item' !!!
+ERROR:root:Traceback (most recent call last):
+  File "/home/petpooja-244/Desktop/call/main.py", line 104, in chat
+    async for event in self.graph.astream(self.state, stream_mode="updates"):
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3109, in astream
+    async for _ in runner.atick(
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 163, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/agents/menu_agent.py", line 39, in __call__
+    # Use 'name' key instead of 'item'
+                                       
+KeyError: 'item'
+During task with name 'menu_specialist' and id '47b54ff5-d7f5-b45e-df63-35077f623b6a'
+
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm ttft: 245.659ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm duration: 245.7311ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:agent output speech: I'm sorry, I'm having a bit of trouble processing that. Could you repeat?
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.analytics:Analytics sent successfully
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.cascading_metrics_collector:Stt duration 2.2999992, confidence 0.54589844
+INFO:videosdk.agents.conversation_flow:DEFAULT Mode, using min speech wait timeout seconds 0.8 and max speech wait timeout seconds 1.2
+INFO:videosdk.agents.conversation_flow:Using delay: 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Called _wait_for_additional_speech method, Waiting for additional speech for 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Finalizing transcript: 'Veg b DNA.'
+INFO:videosdk.agents.metrics.cascading_metrics_collector:user input speech: Veg b DNA.
+INFO:videosdk.agents.metrics.cascading_metrics_collector:stt latency: 802.6222ms
+INFO:root:!!! LLM CHAT METHOD TRIGGERED !!! Session: 2610d754-8001-4646-9e8f-17f65d815521
+INFO:root:--- USER SAYS: ['Veg b DNA.'] ---
+INFO:root:--- Starting 17-Step Workflow ---
+INFO:videosdk.agents.room.audio_stream:on last audio callback
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- ExtractionAgent took 0.23s ---
+INFO:root:--- Workflow Node 'extractor' finished ---
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- IntentAgent took 0.12s (Intent: order) ---
+INFO:root:--- Workflow Node 'intent_classifier' finished ---
+INFO:root:--- Workflow Node 'menu_specialist' finished ---
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:root:--- OrderAgent state update: {'items': [], 'total': 0.0, 'tax': 0.0} ---
+--- OrderAgent took 0.13s ---
+INFO:root:--- Workflow Node 'order_builder' finished ---
+INFO:root:--- Workflow Node 'validator' finished ---
+INFO:root:--- Workflow Node 'summarizer' finished ---
+INFO:root:--- Workflow completed in 0.50s ---
+INFO:root:--- AI SAYS: I'm sorry, I couldn't find that item in the menu or something went wrong. Could you please check the menu or try another item? ---
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm ttft: 497.2456ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm duration: 497.368ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:agent output speech: I'm sorry, I couldn't find that item in the menu or something went wrong. Could you please check the menu or try another item?
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.analytics:Analytics sent successfully
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.worker:Updating worker status - job_count: 2, load: 0.4, max_processes: 5
+INFO:videosdk.agents.worker:Active job IDs: ['f12e28ae-e0d1-4514-8511-61324f7915a6', '86c591a2-b753-4439-af0a-6a62b0237814']
+INFO:videosdk.agents.metrics.cascading_metrics_collector:Stt duration 4.6899986, confidence 0.8063965
+INFO:videosdk.agents.conversation_flow:DEFAULT Mode, using min speech wait timeout seconds 0.8 and max speech wait timeout seconds 1.2
+INFO:videosdk.agents.conversation_flow:Using delay: 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Called _wait_for_additional_speech method, Waiting for additional speech for 0.8 seconds
+INFO:videosdk.agents.conversation_flow:Finalizing transcript: 'Okay.'
+INFO:videosdk.agents.metrics.cascading_metrics_collector:user input speech: Okay.
+INFO:videosdk.agents.metrics.cascading_metrics_collector:stt latency: 801.6522ms
+INFO:root:!!! LLM CHAT METHOD TRIGGERED !!! Session: 2610d754-8001-4646-9e8f-17f65d815521
+INFO:root:--- USER SAYS: ['Okay.'] ---
+INFO:root:--- Starting 17-Step Workflow ---
+INFO:videosdk.agents.room.audio_stream:on last audio callback
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- ExtractionAgent took 0.22s ---
+INFO:root:--- Workflow Node 'extractor' finished ---
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- IntentAgent took 0.14s (Intent: general) ---
+INFO:root:--- Workflow Node 'intent_classifier' finished ---
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+--- GeneralAgent took 0.15s ---
+INFO:root:--- Workflow Node 'concierge' finished ---
+INFO:root:--- Workflow completed in 0.51s ---
+INFO:root:--- AI SAYS: Hello! Welcome to our restaurant! Can I take a table reservation for you today? ---
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm ttft: 510.117ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:llm duration: 510.4275ms
+INFO:videosdk.agents.metrics.cascading_metrics_collector:agent output speech: Hello! Welcome to our restaurant! Can I take a table reservation for you today?
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.metrics.analytics:Analytics sent successfully
+INFO:videosdk.agents.room.audio_stream:[AudioTrack] Agent finished speaking — triggering last_audio_callback.
+INFO:videosdk.agents.conversation_flow:[TTS] Last audio byte processed — Agent and User set to IDLE
+INFO:videosdk.agents.room.room:Participant left: +15746525076
+INFO:videosdk.agents.room.room:All non-agent participants have left, scheduling session end in 5 seconds
+INFO:videosdk.agents.room.room:Session end scheduled in 5 seconds
+INFO:videosdk.agents.room.room:Ending session: no_participants
+INFO:videosdk.agents.room.room:Leaving meeting and cleaning up resources
+INFO:videosdk.agents.room.room:Starting room cleanup
+INFO:videosdk.agents.room.audio_stream:Audio track interrupted, clearing buffers.
+INFO:videosdk.agents.room.room:Room cleanup completed
+Traceback (most recent call last):
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/videosdk/agents/room/audio_stream.py", line 183, in recv
+    raise MediaStreamError
+videosdk.agents.room.audio_stream.MediaStreamError
+ERROR:videosdk.agents.room.audio_stream:Error while creating tts->rtc frame: 
+WARNING:vsaiortc.rtcrtpsender:RTCRtpsender(audio) Traceback (most recent call last):
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/vsaiortc/rtcrtpsender.py", line 367, in _run_rtp
+    enc_frame = await self._next_encoded_frame(codec)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/vsaiortc/rtcrtpsender.py", line 319, in _next_encoded_frame
+    payloads, timestamp = self.__encoder.pack(data)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petpooja-244/Desktop/call/venv312/lib/python3.12/site-packages/vsaiortc/codecs/opus.py", line 89, in pack
+    timestamp = convert_timebase(packet.pts, packet.time_base, TIME_BASE)
+                                 ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'pts'
+
+WARNING:videosdk.lib.pymediasoup.data_producer:DataProducer DataChannel "close" event
+WARNING:videosdk.lib.pymediasoup.data_producer:DataProducer DataChannel "close" event
+INFO:videosdk.agents.room.room:Meeting Left: {}

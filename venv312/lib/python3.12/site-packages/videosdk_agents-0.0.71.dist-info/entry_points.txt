@@ -1,0 +1,2 @@
+[console_scripts]
+videosdk = videosdk.agents.cli:main
